@@ -63,11 +63,27 @@ def scrape():
         img_url = list_.a['href']
         image_urls.append(img_url)
         browser.back()
-    hemisphere_image_urls = (hemispheres, image_urls)
-    mars_data =  {"news_title": news_title,
+    hemisphere_image_urls = dict(zip(hemispheres, image_urls))
+    h_1_title = list(hemisphere_image_urls.keys())[0]
+    h_2_title = list(hemisphere_image_urls.keys())[1]
+    h_3_title = list(hemisphere_image_urls.keys())[2]
+    h_4_title = list(hemisphere_image_urls.keys())[3]
+    h_1_img = list(hemisphere_image_urls.values())[0]
+    h_2_img = list(hemisphere_image_urls.values())[1]
+    h_3_img = list(hemisphere_image_urls.values())[2]
+    h_4_img = list(hemisphere_image_urls.values())[3]
+    mars_data = {"news_title": news_title,
              "news_body": news_body,
              "featured_image_url": featured_image_url,
              "weather": weather,
              "space_facts": space_facts,
-             "hemisphere_image_urls": hemisphere_image_urls}
+             "h_1_title": h_1_title, 
+             "h_2_title": h_2_title,
+             "h_3_title": h_3_title,
+             "h_4_title": h_4_title,
+             "h_1_img": h_1_img,
+             "h_2_img": h_2_img,
+             "h_3_img": h_3_img,
+             "h_4_img": h_4_img
+                }
     return mars_data
