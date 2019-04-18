@@ -19,12 +19,30 @@
 
     <!-- Mars info-->
     <div class="row" id="mars-data">
-      <div class="col-md-12">
-        <h4 class="heading">Heading</h4>
-        <small>{{ mars.news_title }}</small>
+      <div class="col-md">
+        <h4 class="heading"><strong>Latest Mars News</strong></h4>
+        {{ mars.news_title }}
+        <p><small>{{ mars.news_body }}</small></p>
       </div>
     </div>
-
+    <div class="row" id="mars-data">
+      <div class="col-md-8">
+          <h5><strong>Featured image for Mars</strong></h5>
+        <img src="{{ mars.featured_image_url }}" alt="Featured Mars Image">
+      </div>
+      <div class="col-md-4">
+        <div class="weather">
+            <strong><small>Weather Conditions on Mars</small></strong>
+         <p>{{ mars.weather }}</p>
+        </br>
+        <div class="table">
+            <strong><small>Mars Facts</small></strong>
+        </br>
+            <table>{{ mars.space_facts }} </table>
+        </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 
