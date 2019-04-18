@@ -1,5 +1,6 @@
 from splinter import Browser
 from bs4 import BeautifulSoup
+import pandas as pd 
 
 
 def init_browser():
@@ -38,11 +39,9 @@ def scrape():
     weather = soup.find("p", class_='tweet-text').get_text()
     # returns table from space facts 
     url4 = "https://space-facts.com/mars/"
-    browser.visit(url4)
-    html = browser.html
-    soup = BeautifulSoup(html, "html.parser")
-    space_facts = soup.find("tbody").get_text()
-    url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
+    table = pd.read_html(url4)
+    df_facts = table[0]
+    space_facts = df_facts.to_html(classes="table")
     # hemisphere info 
     url5 = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
     browser.visit(url5)
