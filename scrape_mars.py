@@ -41,6 +41,8 @@ def scrape():
     url4 = "https://space-facts.com/mars/"
     table = pd.read_html(url4)
     df1 = table[0]
+    df1.columns = ['Variable', 'Measurement']
+    df1.set_index('Variable', inplace=True)
     space_facts = df1.to_html(classes="table")
     # hemisphere info 
     url5 = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
