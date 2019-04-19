@@ -29,7 +29,7 @@ def scrape():
     browser.visit(url2)
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
-    featured_image = soup.find_all('img')[3]["src"]
+    featured_image = soup.find(class_='button fancybox')['data-fancybox-href']
     featured_image_url = ("https://www.jpl.nasa.gov" + featured_image)
     # mars weather
     url3 = "https://twitter.com/marswxreport?lang=en"
@@ -40,8 +40,8 @@ def scrape():
     # returns table from space facts 
     url4 = "https://space-facts.com/mars/"
     table = pd.read_html(url4)
-    df_facts = table[0]
-    space_facts = df_facts.to_html(classes="table")
+    df1 = table[0]
+    space_facts = df1.to_html(classes="table")
     # hemisphere info 
     url5 = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
     browser.visit(url5)
