@@ -1,7 +1,8 @@
 # Mars Web Scrape App
-In this project, I build a web application that scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page
 
+* In this project, I build a web application that scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page
 
+* The following sources are scraped for new information and then displayed through my app. 
 
 ## Sources for Scrape
 * [NASA Mars News Site](https://mars.nasa.gov/news/)
